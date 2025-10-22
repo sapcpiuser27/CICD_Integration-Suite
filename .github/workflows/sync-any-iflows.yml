@@ -51,6 +51,7 @@ jobs:
       with:
         tmn-host: trial-d6guw7gv.integrationsuite-trial.cfapps.ap21.hana.ondemand.com
         oauth-host: trial-d6guw7gv.authentication.ap21.hana.ondemand.com
+        oauth-tokenurl: https://trial-d6guw7gv.authentication.ap21.hana.ondemand.com/oauth/token
         oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
         oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
         package-id: ${{ github.event.inputs.packageId }}
