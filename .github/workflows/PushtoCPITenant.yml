@@ -21,11 +21,11 @@ jobs:
           oauth-host: trial-d6guw7gv.authentication.ap21.hana.ondemand.com
           oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
           oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
-          artifact-id: DEMO_FLOW
-          artifact-name: DEMO_FLOW
+          artifact-id: DEMO_IFLOW
+          artifact-name: DEMO_IFLOW
           package-id: TESTPACKAGE
           package-name: TEST_PACKAGE
-          dir-artifact-relative: CICD Demo/DEMO_FLOW
+          dir-artifact-relative: CICD Demo/DEMO_IFLOW
 
       # Deploy to runtime
       - name: 'Deploy iflow to run time'
@@ -35,4 +35,4 @@ jobs:
           oauth-host: trial-d6guw7gv.authentication.ap21.hana.ondemand.com
           oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
           oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
-          artifact-ids: DEMO_FLOW
+          artifact-ids: DEMO_IFLOW
