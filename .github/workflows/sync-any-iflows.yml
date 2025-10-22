@@ -1,0 +1,69 @@
+name: Sync any artifact from tenant
+
+on:
+  workflow_dispatch:
+    inputs:
+      directory:
+        description: 'Target artifact directory (relative from Git repository root)'
+        required: false
+      includedIds:
+        description: 'Included Ids (optional)'
+        required: false
+      excludedIds:
+        description: 'Excluded Ids (optional)'
+        required: false
+      draft:
+        description: 'Draft handling'
+        type: choice
+        options:
+          - SKIP
+          - ADD
+          - ERROR
+        required: false
+      dirNaming:
+        description: 'Naming convention for artifact directories'
+        required: false
+        type: choice
+        options:
+          - ID
+          - NAME
+      syncPackageDetails:
+        description: "Sync package details"
+        type: boolean
+        required: false
+      message:
+        description: 'Commit message (optional)'
+        required: false
+
+env:
+  # Contains the technical package Id
+  PACKAGE_ID: TESTPACKAGE       # Update this variable value with the Package Technical ID
+
+  # Contains the package name
+  PACKAGE_NAME: 'TEST_PACKAGE'  # Update this variable value with the Package Name
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    container:
+      image: engswee/flashpipe:latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: 'Sync any artifact'
+      uses: engswee/flashpipe-action/sync@v1
+      with:
+        tmn-host: dummy.hana.ondemand.com
+        oauth-host: dummy.authentication.eu10.hana.ondemand.com
+        oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
+        oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
+        package-id: ${{ env.PACKAGE_ID }}
+        package-name: ${{ env.PACKAGE_NAME }}
+        dir-artifacts-relative: ${{ github.event.inputs.directory }}
+        dir-naming-type: ${{ github.event.inputs.dirNaming }}
+        draft-handling: ${{ github.event.inputs.draft }}
+        ids-include: ${{ github.event.inputs.includedIds }}
+        ids-exclude: ${{ github.event.inputs.excludedIds }}
+        git-commit-msg: ${{ github.event.inputs.message }}
+        sync-package-details: ${{ github.event.inputs.syncPackageDetails }}
