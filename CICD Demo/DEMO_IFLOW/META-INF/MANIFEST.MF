@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: DEMO_IFLOW
 Bundle-SymbolicName: DEMO_IFLOW; singleton:=true
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.2
 SAP-BundleType: IntegrationFlow
 SAP-NodeType: IFLMAP
 SAP-RuntimeProfile: iflmap
@@ -30,4 +30,5 @@ Import-Package: com.sap.esb.application.services.cxf.interceptor,com.sap
  che.camel.processor.idempotent.jdbc,org.osgi.service.blueprint
 Origin-Bundle-Name: DEMO_IFLOW
 Origin-Bundle-SymbolicName: DEMO_IFLOW
+
 
