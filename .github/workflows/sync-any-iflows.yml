@@ -49,9 +49,10 @@ jobs:
     - name: 'Sync any artifact'
       uses: engswee/flashpipe-action/sync@v1
       with:
-        tmn-host: trial-d6guw7gv.integrationsuite-trial.cfapps.ap21.hana.ondemand.com
+        # tmn-host: trial-d6guw7gv.integrationsuite-trial.cfapps.ap21.hana.ondemand.com
+        tmn-host: trial-d6guw7gv.it-cpitrial03.cfapps.ap21.hana.ondemand.com
         oauth-host: trial-d6guw7gv.authentication.ap21.hana.ondemand.com
-        oauth-tokenurl: https://trial-d6guw7gv.authentication.ap21.hana.ondemand.com/oauth/token
+       # oauth-tokenurl: https://trial-d6guw7gv.authentication.ap21.hana.ondemand.com/oauth/token
         oauth-clientid: ${{ secrets.DEV_CLIENT_ID }}
         oauth-clientsecret: ${{ secrets.DEV_CLIENT_SECRET }}
         package-id: ${{ github.event.inputs.packageId }}
