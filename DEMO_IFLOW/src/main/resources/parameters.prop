@@ -1,0 +1,4 @@
+#Fri Oct 24 21:00:52 UTC 2025
+HTTP_SND_ADDRESS=/demo/iflow
+HTTP_SND_AUTH_TYPE=RoleBased
+HTTP_SND_USER_ROLE=ESBMessaging.send
