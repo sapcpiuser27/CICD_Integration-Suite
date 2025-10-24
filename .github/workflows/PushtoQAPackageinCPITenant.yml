@@ -23,7 +23,7 @@ jobs:
           artifact-name: DEMO_IFLOW_QA
           package-id: TESTPACKAGEQA
           package-name: TEST_PACKAGE_QA
-          dir-artifact-relative: CICD Demo/DEMO_IFLOW
+          dir-artifact-relative: CICD Demo/DEMO_IFLOW_QA
 
       # Deploy to runtime
       - name: 'Deploy iflow to run time'
